@@ -1,0 +1,49 @@
+<template name="client">
+  <head>
+    <title>parkingSystem client</title>
+    <link rel="stylesheet" href="client.css" />
+  </head>
+
+  <body>
+    {{> clientPanel}}
+  </body>
+</template>
+
+<template name="clientPanel">
+  <div class="container">
+    <div class="row clientBox">
+      <div class="col-md-12">
+        <input
+          type="text"
+          id="carReg"
+          class="js-formCar form-control"
+          placeholder="Car registation"
+        />
+      </div>
+      {{> buttontemp getData}}
+      {{> dataDisplay}}
+    </div>
+  </div>
+</template>
+
+<template name="dataDisplay">
+  
+</template>
+
+<template name="buttontemp">
+  <div class="col-sm-4">
+    <button type="button" class="js-req btn btn-lg btn-block btn-primary">
+      Request
+    </button>
+  </div>
+  <div class="col-sm-4">
+    <button type="button" class="js-parked btn btn-lg btn-block btn-success">
+      Parked
+    </button>
+  </div>
+  <div class="col-sm-4">
+    <button type="button" class="js-leave btn btn-lg btn-block btn-warning">
+      Leave
+    </button>
+  </div>
+</template>

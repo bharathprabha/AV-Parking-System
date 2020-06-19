@@ -1,0 +1,63 @@
+<template name="Server">
+  <head>
+    <title>parkingSystem</title>
+  </head>
+
+  <body>
+    {{> serverPanel}}
+  </body>
+</template>
+
+<template name="serverPanel">
+  <div class="cssServerPanel container">
+    <div class="row">
+      <div class="col-md-12">
+        <center><h3>Parking System for AVs</h3></center>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-sm-4 cssparkingSlot">
+        {{> parkingSlot}}
+      </div>
+      <div class="col-sm-8 cssstatusTable">
+        {{> statusTable}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="parkingSlot">
+  <div class="row">
+    {{#each slots}} {{#if checkSlot parkedStatus}}
+    <div class="slotBoxfree col-xs-3"></div>
+    {{else if checkSlot2 parkedStatus}}
+    <div class="slotBoxwait col-xs-3"></div>
+    {{else}}
+    <div class="slotBoxparked col-xs-3"></div>
+    {{/if}} {{/each}}
+  </div>
+</template>
+
+<template name="statusTable">
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Car Registation</th>
+        <th scope="col">Requested Time</th>
+        <th scope="col">Parked Time</th>
+        <th scope="col">CheckOut Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each getCarHisData}}
+      <tr>
+        <th scope="row">{{carReg}}</th>
+        <td><p>{{reqTime}}</p></td>
+        <td>{{parkedTime}}</td>
+        <td>{{leaveTime}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>
